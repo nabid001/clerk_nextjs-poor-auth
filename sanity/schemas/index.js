@@ -1,5 +1,7 @@
-import user from "./user";
+import author from "./author";
+import category from "./category";
+import post from "./post";
 
-const schemas = [user];
+const schemas = [author, post, category];
 
 export default schemas;

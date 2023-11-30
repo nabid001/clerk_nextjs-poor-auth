@@ -1,17 +1,26 @@
 import { client } from "./lib/client";
 
-export const saveUserToDB = async ({ id, username, imageUrl, email }) => {
+export const saveUserToDB = async ({
+  id,
+  username: userName,
+  imageUrl,
+  email,
+  lastName,
+  firstName,
+}) => {
   try {
-    const response = await client.createIfNotExists({
-      _type: "user",
-      name: username,
+    await client.createIfNotExists({
+      _type: "author",
       _id: id,
       id,
+      userName,
+      firstName,
+      lastName,
       email,
       imageUrl,
     });
 
-    // return respons
+    console.log("user created");
   } catch (error) {
     console.log(error.message || "failed to create user");
   }
