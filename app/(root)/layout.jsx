@@ -3,10 +3,10 @@ import React from "react";
 
 const layout = ({ children }) => {
   return (
-    <div className="p-10">
+    <>
       <Navbar />
-      {children}
-    </div>
+      <div className="px-4">{children}</div>
+    </>
   );
 };
 

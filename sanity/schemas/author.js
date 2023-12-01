@@ -36,5 +36,11 @@ export default {
       title: "Image Url",
       type: "string",
     },
+    {
+      name: "post",
+      title: "Post",
+      type: "array",
+      of: [{ type: "reference", to: { type: "post" } }],
+    },
   ],
 };

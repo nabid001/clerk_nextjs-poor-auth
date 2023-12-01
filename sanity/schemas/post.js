@@ -7,28 +7,25 @@ export default {
       name: "title",
       title: "Title",
       type: "string",
-      validation: (Rule) => Rule.required(),
+      // validation: (Rule) => Rule.required(),
     },
     {
       name: "description",
       title: "Description",
       type: "string",
-      validation: (Rule) => Rule.required(),
+      // validation: (Rule) => Rule.required(),
     },
     {
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      options: {
-        source: "title",
-        maxLength: 96,
-      },
+      name: "postedBy",
+      title: "Posted By",
+      type: "string",
     },
+
     {
       name: "author",
       title: "Author",
       type: "reference",
-      to: [{ type: "author" }],
+      to: { type: "author" },
       validation: (Rule) => Rule.required(),
     },
     {
@@ -46,29 +43,5 @@ export default {
         },
       ],
     },
-    {
-      name: "categories",
-      title: "Categories",
-      type: "array",
-      of: [{ type: "reference", to: { type: "category" } }],
-    },
-    {
-      name: "publishedAt",
-      title: "PublishedAt",
-      type: "datetime",
-      validation: (Rule) => Rule.required(),
-    },
   ],
-
-  preview: {
-    select: {
-      title: "title",
-      author: "author.name",
-      media: "mainImage",
-    },
-    prepare(selection) {
-      const { author } = selection;
-      return { ...selection, subtitle: author && `by ${author}` };
-    },
-  },
 };
